@@ -4,19 +4,25 @@
     <title>PDOK and Leaflet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="assets/css/mystyle.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
     <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.ie.css" />
     <![endif]-->
-
+    <link rel="stylesheet" href="assets/css/mystyle.css" />
+    <link rel="stylesheet" href="assets/css/L.Control.Sidebar.css" />
     <!-- stuff to draw/edit -->
     <link rel="stylesheet" href="assets/css/leaflet.draw.css" />
   
   </head>
   <body>
+    <div id="sidebar">
+      <p>Welcome to AHN2 download</p>
+    </div>
+    
     <div id="map"></div>
+    
     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src="assets/js/L.Control.Sidebar.js"></script>
     <!-- stuff to draw/edit -->
     <script src="assets/js/Leaflet.draw.js"></script>
     <script src="assets/js/edit/handler/Edit.Poly.js"></script>

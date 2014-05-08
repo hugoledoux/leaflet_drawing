@@ -53,6 +53,17 @@ var map = new L.Map('map', {
   zoom: 9
 });
 
+var sidebar = L.control.sidebar('sidebar', {
+  closeButton: false,
+  position: 'left'
+});
+map.addControl(sidebar);
+
+setTimeout(function () {
+  sidebar.show();
+}, 500);
+
+
 var baseMaps = {
     "BRT": BRTlayer,
     "Orthophoto": Photolayer,
@@ -84,13 +95,19 @@ map.on('draw:created', function (e) {
   layer = e.layer;
   drawnItems.clearLayers();
   drawnItems.addLayer(layer);
-  console.log(layer.getBounds().toBBoxString())
+  console.log(layer.getBounds().toBBoxString());
+  // var ll = L.latLng(layer.getBounds().getSouth(), layer.getBounds().getWest());
+  // console.log(ll);
+  // var y = layer.getBounds().getSouth();
+  // var point = RD.projection.project();
+  // alert("RD X: " + point.x + ", Y: " + point.y);
 });
 
 map.on('draw:edited', function (e) {
   var layers = e.layers;
   layers.eachLayer(function(layer) {
     console.log(layer.getBounds().toBBoxString());
+    alert(layer.getBounds().toBBoxString());
   });
 });
 
