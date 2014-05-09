@@ -95,19 +95,20 @@ map.on('draw:created', function (e) {
   layer = e.layer;
   drawnItems.clearLayers();
   drawnItems.addLayer(layer);
-  console.log(layer.getBounds().toBBoxString());
-  // var ll = L.latLng(layer.getBounds().getSouth(), layer.getBounds().getWest());
-  // console.log(ll);
-  // var y = layer.getBounds().getSouth();
-  // var point = RD.projection.project();
-  // alert("RD X: " + point.x + ", Y: " + point.y);
+  // console.log(layer.getBounds().toBBoxString());
+  var ll = RD.projection.project(L.latLng(layer.getBounds().getSouth(), layer.getBounds().getWest()));
+  var tr = RD.projection.project(L.latLng(layer.getBounds().getNorth(), layer.getBounds().getEast()));
+  alert("(ll): RD X: " + ll.x + ", Y: " + ll.y);
+  alert("(tr): RD X: " + tr.x + ", Y: " + tr.y);
 });
 
 map.on('draw:edited', function (e) {
   var layers = e.layers;
   layers.eachLayer(function(layer) {
-    console.log(layer.getBounds().toBBoxString());
-    alert(layer.getBounds().toBBoxString());
+    var ll = RD.projection.project(L.latLng(layer.getBounds().getSouth(), layer.getBounds().getWest()));
+    var tr = RD.projection.project(L.latLng(layer.getBounds().getNorth(), layer.getBounds().getEast()));
+    alert("(ll): RD X: " + ll.x + ", Y: " + ll.y);
+    alert("(tr): RD X: " + tr.x + ", Y: " + tr.y);
   });
 });
 
